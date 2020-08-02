@@ -1,4 +1,4 @@
-# Title
+# Bias Eliminate Domain Adaptive Pedestrain Re-identification
 
 This repo contains our code for [VisDA2020](http://ai.bu.edu/visda-2020) challenge at ECCV workshop. 
 
