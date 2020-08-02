@@ -1,0 +1,60 @@
+MODEL:
+  PRETRAIN_CHOICE: 'camera'
+  PRETRAIN_PATH: 'the/path/to/your/resnet101_ibn_a/model'
+  NAME: 'resnet50_ibn_a'
+  CAMERA_NAME: 'resnet101_ibn_a'
+  DEVICE_ID: "('3')"
+  DROPOUT: 0.7
+
+INPUT:
+  SIZE_TRAIN: [384, 128]
+  SIZE_TEST: [384, 128]
+  PROB: 0.5 # random horizontal flip
+  RE_PROB: 1.0 # random erasing
+
+SRC_DATA:
+  NAMES: ('visda_dataset')
+  TRAIN_DIR: ('the/path/to/your/new_challenge_datasets/Corrected_target_training/')
+  SAMPLER_UNIFORM: 'img' # img or id
+  NUM_INSTANCE: 16
+  TRANSFERED: 'original'
+
+VAL_DATA:
+  NAMES: ('visda_dataset')
+  TRAIN_DIR: ('the/path/to/your/new_challenge_datasets/Corrected_valid/')
+
+DATALOADER:
+  NUM_WORKERS: 4
+  SAMPLER_PROB: [0.5, 0.0] # src, tgt_unsup
+  IMS_PER_BATCH: 64
+
+LOSS:
+  LOSS_TYPE: ['trp_cls', 'cls'] # src, tgt_unsup
+  LOSS_WEIGHTS: [1.0, 0.0] # src, tgt_unsup
+  IF_LABELSMOOTH: 'off'
+
+SOLVER:
+  OPTIMIZER_NAME: 'SGD'
+  MAX_EPOCHS: 20
+  BASE_LR: 0.001
+  WEIGHT_DECAY: 0.
+
+  STEPS: [10, 15]
+
+  WARMUP_FACTOR: 0.01
+  WARMUP_ITERS: 0
+  WARMUP_METHOD: 'linear'
+
+  CHECKPOINT_PERIOD: 1
+  LOG_PERIOD: 10
+  EVAL_PERIOD: 1
+
+TEST:
+  IMS_PER_BATCH: 64
+  RE_RANKING: 'yes'
+  WEIGHT: ""
+  CAMERA_WEIGHT: ""
+  NECK_FEAT: 'before'
+  FEAT_NORM: 'yes'
+
+OUTPUT_DIR: "./log/camera"

@@ -1,0 +1,75 @@
+MODEL:
+  PRETRAIN_CHOICE: 'self'
+  PRETRAIN_PATH: 'your/best/transferred/model'
+  NAME: 'resnet50_ibn_a'
+  CAMERA_NAME: 'resnet101_ibn_a'
+  DEVICE_ID: "('1')"
+  DROPOUT: 0.7
+  FINETUNE: True
+
+INPUT:
+  SIZE_TRAIN: [384, 128]
+  SIZE_TEST: [384, 128]
+  PROB: 0.5 # random horizontal flip
+  RE_PROB: 1.0 # random erasing
+
+TGT_UNSUPDATA:
+  CLUSTER_TOPK: 500
+  CLUSTER_DIST_THRD: 0.25
+  PSOLABEL_PERIOD: 6
+  NAMES: ('visda_dataset')
+  TRAIN_DIR: ('the/path/to/your/new_challenge_datasets/Corrected_target_training/')
+  SAMPLER_UNIFORM: 'img' # img or id
+  NUM_INSTANCE: 8
+  CLS_LR: 0.02
+
+SRC_DATA:
+  NAMES: ('visda_dataset')
+  TRAIN_DIR: ('the/path/to/your/new_challenge_datasets/Corrected_personX/')
+  SAMPLER_UNIFORM: 'img' # img or id
+  NUM_INSTANCE: 8
+  TRANSFERED: 'spgan'
+
+VAL_DATA:
+  NAMES: ('visda_dataset')
+  TRAIN_DIR: ('the/path/to/your/new_challenge_datasets/Corrected_valid/')
+
+TEST_DATA:
+  NAMES: ('visda_dataset')
+  TRAIN_DIR: ('the/path/to/your/new_challenge_datasets/Corrected_test/')
+
+DATALOADER:
+  NUM_WORKERS: 4
+  SAMPLER_PROB: [0.5,0.5] # src, tgt_unsup
+  IMS_PER_BATCH: 96
+
+LOSS:
+  LOSS_TYPE: ['trp_cls','trp_cls'] # src, tgt_sup, tgt_unsup
+  LOSS_WEIGHTS: [1.0,1,1.0] # src, tgt_sup, tgt_unsup
+  IF_LABELSMOOTH: 'on'
+
+SOLVER:
+  OPTIMIZER_NAME: 'SGD'
+  MAX_EPOCHS: 61
+  BASE_LR: 0.02
+  WEIGHT_DECAY: 0.
+
+  STEPS: [24, 48]
+
+  WARMUP_FACTOR: 0.01
+  WARMUP_ITERS: 10
+  WARMUP_METHOD: 'linear'
+
+  CHECKPOINT_PERIOD: 6
+  LOG_PERIOD: 30
+  EVAL_PERIOD: 6
+
+TEST:
+  IMS_PER_BATCH: 64
+  RE_RANKING: 'no'
+  WEIGHT: ""
+  CAMERA_WEIGHT: "the/path/to/your/camera/model"
+  NECK_FEAT: 'before'
+  FEAT_NORM: 'yes'
+
+OUTPUT_DIR: "./log/finetune"
