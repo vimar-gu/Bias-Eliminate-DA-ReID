@@ -10,7 +10,7 @@ This project is mainly based on [reid-strong-baseline](https://github.com/michua
 
 ## Get Started
 
-1. Clone the repo `git clone https://github.com/vimar-gu/`
+1. Clone the repo `git clone https://github.com/vimar-gu/Bias-Eliminate-DA-ReID.git`
 2. Install dependencies:
 * pytorch >= 1.0.0
 * python >= 3.5
@@ -39,6 +39,7 @@ python train_camera.py --config=configs/camera.yml
 python train_adaptation.py --config=configs/finetune.yml
 ```
 6. Validate and test.
+Before testing, you should modify the filenames of testset to the same format as in our Corrected datasets. 
 ```
 python validate.py --config=configs/finetune.yml
 python test.py --config=configs/finetune.yml
