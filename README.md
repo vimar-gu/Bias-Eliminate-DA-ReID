@@ -55,4 +55,4 @@ The performance on VisDA2020 validation dataset
 | Basline | 30.7 | 59.7 | 77.5 | 83.3 |
 | + Domain Adaptation | 43.2 | 72.1 | 84.4 | 89.9 |
 | + Finetuning | 46.3 | 76.1 | 86.5 | 91.0 |
-| + Post Processing | 69.3 | 86.5 | 90.5 | 91.8 |
+| + Post Processing | 69.3 | 85.4 | 91.0 | 93.1 |
