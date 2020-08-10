@@ -26,13 +26,13 @@ This project is mainly based on [reid-strong-baseline](https://github.com/michua
 ```
 python train_baseline.py --config=configs/baseline.yml
 ```
-3. Train domain adaptation.
-```
-python train_adaptation.py --config=configs/adaptation.yml
-```
-4. Train the camera model. 
+3. Train the camera model. 
 ```
 python train_camera.py --config=configs/camera.yml
+```
+4. Train domain adaptation.
+```
+python train_adaptation.py --config=configs/adaptation.yml
 ```
 5. Finetune the model.
 ```
@@ -53,6 +53,6 @@ The performance on VisDA2020 validation dataset
 | Method | mAP | Rank-1 | Rank-5 | Rank-10 |
 |  ---   | --- |   ---  |   ---  |   ---   |
 | Basline | 30.7 | 59.7 | 77.5 | 83.3 |
-| + Domain Adaptation | 43.2 | 72.1 | 84.4 | 89.9 |
-| + Finetuning | 46.3 | 76.1 | 86.5 | 91.0 |
-| + Post Processing | 69.3 | 85.4 | 91.0 | 93.1 |
+| + Domain Adaptation | 44.9 | 75.3 | 86.7 | 91.0 |
+| + Finetuning | 48.6 | 79.8 | 88.3 | 91.5 |
+| + Post Processing | 70.9 | 86.5 | 92.8 | 94.4 |

@@ -3,7 +3,7 @@ MODEL:
   PRETRAIN_PATH: ''
   NAME: 'resnet50_ibn_a'
   CAMERA_NAME: 'resnet101_ibn_a'
-  DEVICE_ID: "('1')"
+  DEVICE_ID: "('0')"
   DROPOUT: 0.7
   FINETUNE: True
 

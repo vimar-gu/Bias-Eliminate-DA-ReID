@@ -47,7 +47,7 @@ def train(cfg):
         optimizer.load_state_dict(torch.load(path_to_optimizer))
         scheduler = WarmupMultiStepLR(optimizer, cfg.SOLVER.STEPS, cfg.SOLVER.GAMMA, cfg.SOLVER.WARMUP_FACTOR,
                                           cfg.SOLVER.WARMUP_ITERS, cfg.SOLVER.WARMUP_METHOD, start_epoch)
-    elif cfg.MODEL.PRETRAIN_CHOICE == 'self' or cfg.MODEL.PRETRAIN_CHOICE == 'imagenet' or cfg.MODEL.PRETRAIN_CHOICE == 'camera':
+    elif cfg.MODEL.PRETRAIN_CHOICE == 'self' or cfg.MODEL.PRETRAIN_CHOICE == 'imagenet':
         start_epoch = 0
         model.load_param(cfg.MODEL.PRETRAIN_PATH,cfg.MODEL.PRETRAIN_CHOICE)
         scheduler = WarmupMultiStepLR(optimizer, cfg.SOLVER.STEPS, cfg.SOLVER.GAMMA, cfg.SOLVER.WARMUP_FACTOR,

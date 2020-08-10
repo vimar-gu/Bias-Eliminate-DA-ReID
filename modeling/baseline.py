@@ -389,10 +389,4 @@ class CameraBaseline(nn.Module):
             for i in param_dict:
                 self.state_dict()[i].copy_(param_dict[i])
         elif pretrain_choice == 'imagenet':
-            self.base.load_param(trained_path)
-        elif pretrain_choice == 'camera':
-            param_dict = torch.load(trained_path)
-            for i in param_dict:
-                if 'classifier' not in i:
-                    self.state_dict()[i].copy_(param_dict[i])
-            
+            self.base.load_param(trained_path)            

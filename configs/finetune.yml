@@ -3,7 +3,7 @@ MODEL:
   PRETRAIN_PATH: 'your/best/transferred/model'
   NAME: 'resnet50_ibn_a'
   CAMERA_NAME: 'resnet101_ibn_a'
-  DEVICE_ID: "('1')"
+  DEVICE_ID: "('0')"
   DROPOUT: 0.7
   FINETUNE: True
 
@@ -15,7 +15,7 @@ INPUT:
 
 TGT_UNSUPDATA:
   CLUSTER_TOPK: 500
-  CLUSTER_DIST_THRD: 0.25
+  CLUSTER_DIST_THRD: 0.5
   PSOLABEL_PERIOD: 6
   NAMES: ('visda_dataset')
   TRAIN_DIR: ('the/path/to/your/new_challenge_datasets/Corrected_target_training/')

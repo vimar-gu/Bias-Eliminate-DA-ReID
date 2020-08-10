@@ -1,9 +1,9 @@
 MODEL:
-  PRETRAIN_CHOICE: 'camera'
+  PRETRAIN_CHOICE: 'imagenet'
   PRETRAIN_PATH: 'the/path/to/your/resnet101_ibn_a/model'
   NAME: 'resnet50_ibn_a'
   CAMERA_NAME: 'resnet101_ibn_a'
-  DEVICE_ID: "('3')"
+  DEVICE_ID: "('0')"
   DROPOUT: 0.7
 
 INPUT:
