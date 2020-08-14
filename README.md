@@ -1,10 +1,10 @@
-# Bias Eliminate Domain Adaptive Pedestrain Re-identification
+# Bias Eliminate Domain Adaptive Pedestrian Re-identification
 
 This repo contains our code for [VisDA2020](http://ai.bu.edu/visda-2020) challenge at ECCV workshop. 
 
 ## Introduction
 
-This work mainly solve the domain adaptive pedestrain re-identification problem by eliminishing the bias from inter-domain gap and intra-domain camera difference. 
+This work mainly solve the domain adaptive pedestrian re-identification problem by eliminishing the bias from inter-domain gap and intra-domain camera difference. 
 
 This project is mainly based on [reid-strong-baseline](https://github.com/michuanhaohao/reid-strong-baseline).
 
@@ -56,3 +56,15 @@ The performance on VisDA2020 validation dataset
 | + Domain Adaptation | 44.9 | 75.3 | 86.7 | 91.0 |
 | + Finetuning | 48.6 | 79.8 | 88.3 | 91.5 |
 | + Post Processing | 70.9 | 86.5 | 92.8 | 94.4 |
+
+## Trained models
+The trained models can be downloaded from:
+
+* ResNet50-ibn-a: [Google Drive](https://drive.google.com/file/d/18WqsoqsGxAV2b0yRwNTnWmuxX-hCqVTr/view?usp=sharing)
+
+We will reproduce the other models asap. 
+
+### Some tips
+* We found that the model with the highest score on the validation set might not perform well on the test set. 
+* There is some randomness in our training and post processing. We will fix the random seed in the following updates. 
+* Multiple camera models in the testing phase may boost the performance by a little bit. 
