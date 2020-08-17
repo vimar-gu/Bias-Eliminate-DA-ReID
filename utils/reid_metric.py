@@ -63,7 +63,7 @@ def mergesetfeat(X, cams, gX, gcams, beta=0.08, knn=20):
             knn_neg_weight = np.ones(len(sim)-knn)
             knn_pos_prob = knn_pos_weight/np.sum(knn_pos_weight)
             knn_neg_prob = knn_neg_weight/np.sum(knn_neg_weight)
-            X[i,:] += 0.5*(knn_pos_prob.dot(knnX[:knn,:]) - knn_neg_prob.dot(knnX[knn:,:]))
+            X[i,:] += 0.2*(knn_pos_prob.dot(knnX[:knn,:]) - knn_neg_prob.dot(knnX[knn:,:]))
             X[i,:] /= np.linalg.norm(X[i,:])
     return X
 
@@ -183,8 +183,8 @@ class R1_mAP_reranking(Metric):
         qf_new = qf.copy()
         for _ in range(3):
             qf_new = mergesetfeat(qf_new, q_campred, gf_new, g_campred, 0.03, 50)
-        qf = torch.from_numpy(qf).cuda()
-        gf = torch.from_numpy(gf).cuda()
+        qf = torch.from_numpy(qf_new).cuda()
+        gf = torch.from_numpy(gf_new).cuda()
 
         distmat = re_ranking(qf, gf, k1=30, k2=8, lambda_value=0.3)
 
