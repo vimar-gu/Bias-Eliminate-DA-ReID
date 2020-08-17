@@ -58,13 +58,16 @@ The performance on VisDA2020 validation dataset
 | + Post Processing | 70.9 | 86.5 | 92.8 | 94.4 |
 
 ## Trained models
-The trained models can be downloaded from:
+The four main models with test image size of (384, 128) can be downloaded from:
 
-* ResNet50-ibn-a: [Google Drive](https://drive.google.com/file/d/18WqsoqsGxAV2b0yRwNTnWmuxX-hCqVTr/view?usp=sharing)
+* ResNet50-ibn-a: [Google Drive](https://drive.google.com/file/d/1ejLJk7sJOWhMD6zwQDWmhzFsli0dcSim/view?usp=sharing)
+* ResNet101-ibn-a: [Google Drive](https://drive.google.com/file/d/1AM_xjiu68iaquT0qMpo8TyauuxKj91sh/view?usp=sharing)
+* ResNet50-ibn-b: [Google Drive](https://drive.google.com/file/d/1w3NITiq4fnmijynAcJM6J-JcqWspscpI/view?usp=sharing)
+* HRNetv2-w18: [Google Drive](https://drive.google.com/file/d/1uiryXdhsH8X4MCIDBafEO9qM7dMekLQS/view?usp=sharing)
 
-We will reproduce the other models asap. 
+* Camera(ResNet101-ibn-a): [Google Drive](https://drive.google.com/file/d/1tuJZw1DnTQ5B95voUL8bE1akiyrqeK-E/view?usp=sharing)
 
 ### Some tips
 * We found that the model with the highest score on the validation set might not perform well on the test set. 
-* There is some randomness in our training and post processing. We will fix the random seed in the following updates. 
+* We have fixed the random seed in the following updates. But there might still be some difference due to environment. 
 * Multiple camera models in the testing phase may boost the performance by a little bit. 

@@ -44,8 +44,8 @@ DATALOADER:
   IMS_PER_BATCH: 96
 
 LOSS:
-  LOSS_TYPE: ['trp_cls','trp_cls'] # src, tgt_sup, tgt_unsup
-  LOSS_WEIGHTS: [1.0,1,1.0] # src, tgt_sup, tgt_unsup
+  LOSS_TYPE: ['trp_cls','trp_cls'] # src, tgt_unsup
+  LOSS_WEIGHTS: [1.0,1.0] # src, tgt_unsup
   IF_LABELSMOOTH: 'on'
 
 SOLVER:

@@ -10,6 +10,7 @@ import sys
 import torch
 import time
 import numpy as np
+import random
 
 from torch.backends import cudnn
 
@@ -24,6 +25,15 @@ from solver import make_optimizer, WarmupMultiStepLR
 
 from utils.logger import setup_logger
 
+def setup_seed(seed):
+    random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed)
+    torch.backends.cudnn.deterministic = True
+
+setup_seed(1)
 
 def train(cfg):
 
