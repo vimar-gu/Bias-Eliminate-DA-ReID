@@ -345,6 +345,9 @@ class CameraBaseline(nn.Module):
             self.base = resnet50_ibn_a(last_stride=last_stride)
         elif model_name == 'resnet101_ibn_a':
             self.base = resnet101_ibn_a(last_stride=last_stride)
+        elif model_name == 'hrnetv2_w18':
+            self.in_planes = 2048
+            self.base = hrnetv2_w18()
 
         self.gap = nn.AdaptiveAvgPool2d(1)
         self.gmp = nn.AdaptiveMaxPool2d(1)

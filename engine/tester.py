@@ -86,7 +86,7 @@ def tester(
                                                 device=device)
     elif cfg.TEST.RE_RANKING == 'yes':
         print("Create evaluator for reranking")
-        evaluator = create_supervised_evaluator(model, camera_model, metrics={'r1_mAP': R1_mAP_reranking(num_query, False, True, max_rank=50, feat_norm=cfg.TEST.FEAT_NORM)},
+        evaluator = create_supervised_evaluator(model, camera_model, metrics={'r1_mAP': R1_mAP_reranking(num_query, False, True, cfg.OUTPUT_DIR, max_rank=50, feat_norm=cfg.TEST.FEAT_NORM)},
                                                 device=device)
     else:
         print("Unsupported re_ranking config. Only support for no or yes, but got {}.".format(cfg.TEST.RE_RANKING))

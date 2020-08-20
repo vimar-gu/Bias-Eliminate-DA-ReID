@@ -16,12 +16,15 @@ def add_space(sims, qc, gc, la=1.0):
     return sims - new_sims
 
 
-distmats = ['distmat.npy']
-weights = [1]
-camdistmats = ['camdistmat.npy']
-cam_weights = [1]
-q_pred = np.load('q_pred.npy')
-g_pred = np.load('g_pred.npy')
+distmats = ['log/test_a/distmat.npy', 'log/test_b/distmat.npy', 'log/test_101/distmat.npy', 'log/test_hr/distmat.npy',
+            'log/test_a_large/distmat.npy', 'log/test_b_large/distmat.npy', 'log/test_101_large/distmat.npy', 'log/test_hr_large/distmat.npy']
+weights = [2, 1, 2, 1,
+           2, 1, 2, 1]
+camdistmats = ['log/test_camera_101/camdistmat.npy', 'log/test_camera_152/camdistmat.npy',
+               'log/test_camera_101_a/camdistmat.npy', 'log/test_camera_hr/camdistmat.npy']
+cam_weights = [1, 1, 1, 1]
+q_pred = np.load('log/test_camera_101_a/q_pred.npy')
+g_pred = np.load('log/test_camera_101_a/g_pred.npy')
 
 final_distmat = np.zeros((len(q_pred), len(g_pred))).astype(np.float16)
 for distmat, weight in zip(distmats, weights):

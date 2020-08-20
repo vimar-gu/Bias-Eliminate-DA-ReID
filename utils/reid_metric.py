@@ -4,6 +4,7 @@
 @contact: sherlockliao01@gmail.com
 """
 
+import os
 import numpy as np
 import torch
 from ignite.metrics import Metric
@@ -129,13 +130,14 @@ class R1_mAP(Metric):
 
 
 class R1_mAP_reranking(Metric):
-    def __init__(self, num_query, validation_flag, output_flag, max_rank=50, feat_norm='yes'):
+    def __init__(self, num_query, validation_flag, output_flag, output_dir, max_rank=50, feat_norm='yes'):
         super(R1_mAP_reranking, self).__init__()
         self.num_query = num_query
         self.max_rank = max_rank
         self.feat_norm = feat_norm
         self.validation_flag = validation_flag
         self.output_flag = output_flag
+        self.output_dir = output_dir
 
     def reset(self):
         self.feats = []
@@ -190,11 +192,11 @@ class R1_mAP_reranking(Metric):
 
         camdistmat = euclidean_dist(qcf, gcf).cpu().numpy()
 
-        if self.validation_flag:
-            np.save('distmat.npy', distmat)
-            np.save('q_pred.npy', q_campred)
-            np.save('g_pred.npy', g_campred)
-            np.save('camdistmat.npy', camdistmat)
+        if self.output_flag:
+            np.save(os.path.join(self.output_dir, 'distmat.npy'), distmat)
+            np.save(os.path.join(self.output_dir, 'q_pred.npy'), q_campred)
+            np.save(os.path.join(self.output_dir, 'g_pred.npy'), g_campred)
+            np.save(os.path.join(self.output_dir, 'camdistmat.npy'), camdistmat)
 
         distmat -= camdistmat * 0.1
 

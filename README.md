@@ -20,32 +20,7 @@ This project is mainly based on [reid-strong-baseline](https://github.com/michua
 4. We use [ResNet-ibn](https://github.com/XingangPan/IBN-Net) and [HRNet](https://github.com/HRNet/HRNet-Image-Classification) as backbones. ImageNet pretrained models can be downloaded in [here](https://drive.google.com/drive/folders/1thS2B8UOSBi_cJX6zRy6YYRwz_nVFI_S) and [here](https://onedrive.live.com/?authkey=%21AMkPimlmClRvmpw&cid=F7FD0B7F26543CEB&id=F7FD0B7F26543CEB%21112&parId=F7FD0B7F26543CEB%21105&o=OneUp). 
 
 ## Run
-
-1. Modify the path to your datasets and pretrained models in configs.
-2. Train the baseline model.
-```
-python train_baseline.py --config=configs/baseline.yml
-```
-3. Train the camera model. 
-```
-python train_camera.py --config=configs/camera.yml
-```
-4. Train domain adaptation.
-```
-python train_adaptation.py --config=configs/adaptation.yml
-```
-5. Finetune the model.
-```
-python train_adaptation.py --config=configs/finetune.yml
-```
-6. Validate and test.
-Before testing, you should modify the filenames of testset to the same format as in our Corrected datasets. 
-```
-python validate.py --config=configs/finetune.yml
-python test.py --config=configs/finetune.yml
-```
-7. Model ensemble.
-To test multiple model ensemble, put the names of distmats into `utils/ensemble.py` and run it. 
+If you want to reproduce our results, please refer to [[VisDA.md]](https://github.com/vimar-gu/Bias-Eliminate-DA-ReID/blob/master/VisDA.md)
 
 ## Results
 The performance on VisDA2020 validation dataset
@@ -68,6 +43,6 @@ The four main models with test image size of (384, 128) can be downloaded from:
 * Camera(ResNet101-ibn-a): [Google Drive](https://drive.google.com/file/d/1tuJZw1DnTQ5B95voUL8bE1akiyrqeK-E/view?usp=sharing)
 
 ### Some tips
-* We found that the model with the highest score on the validation set might not perform well on the test set. 
-* We have fixed the random seed in the following updates. But there might still be some difference due to environment. 
+* By our experience, there can be a large fluctuation of validation scores which are not completely positive correlated to the scores on testing set. 
+* We have fixed the random seed in the updates. But there might still be some difference due to environment. 
 * Multiple camera models in the testing phase may boost the performance by a little bit. 
