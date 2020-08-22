@@ -17,13 +17,13 @@ python train_baseline.py --config=configs/baseline.yml MODEL.NAME "hrnetv2_w18" 
 * Camera models
 
 ```shell
-python train_camera.py --config=configs/camera.yml MODEL.NAME "resnet101" OUTPUT_DIR "./log/camera_101"
+python train_camera.py --config=configs/camera.yml MODEL.CAMERA_NAME "resnet101" OUTPUT_DIR "./log/camera_101"
 
-python train_camera.py --config=configs/camera.yml MODEL.NAME "resnet152" OUTPUT_DIR "./log/camera_152"
+python train_camera.py --config=configs/camera.yml MODEL.CAMERA_NAME "resnet152" OUTPUT_DIR "./log/camera_152"
 
-python train_camera.py --config=configs/camera.yml MODEL.NAME "resnet101_ibn_a" OUTPUT_DIR "./log/camera_101_a"
+python train_camera.py --config=configs/camera.yml MODEL.CAMERA_NAME "resnet101_ibn_a" OUTPUT_DIR "./log/camera_101_a"
 
-python train_camera.py --config=configs/camera.yml MODEL.NAME "hrnetv2_w18" OUTPUT_DIR "./log/camera_hr"
+python train_camera.py --config=configs/camera.yml MODEL.CAMERA_NAME "hrnetv2_w18" OUTPUT_DIR "./log/camera_hr"
 ```
 
 * Adaptation
@@ -138,19 +138,23 @@ INPUT.SIZE_TRAIN "[384, 192]" INPUT.SIZE_TEST "[384, 192]"
 
 Then get distmats from camera models. 
 ```shell
-python test.py --config=configs/test.yml MODEL.NAME "resnet50_ibn_a" OUTPUT_DIR "./log/test_camera_101" \
+python test.py --config=configs/test.yml MODEL.NAME "resnet50_ibn_a" MODEL.CAMERA_NAME "resnet101" \
+OUTPUT_DIR "./log/test_camera_101" \
 TEST.WEIGHT "./log/finetune_a/resnet50_ibn_a_model_best.pth" \
 TEST.CAMERA_WEIGHT "./log/camera_101/best.pth"
 
-python test.py --config=configs/test.yml MODEL.NAME "resnet50_ibn_a" OUTPUT_DIR "./log/test_camera_152" \
+python test.py --config=configs/test.yml MODEL.NAME "resnet50_ibn_a" MODEL.CAMERA_NAME "resnet152" \
+OUTPUT_DIR "./log/test_camera_152" \
 TEST.WEIGHT "./log/finetune_a/resnet50_ibn_a_model_best.pth" \
 TEST.CAMERA_WEIGHT "./log/camera_152/best.pth"
 
-python test.py --config=configs/test.yml MODEL.NAME "resnet50_ibn_a" OUTPUT_DIR "./log/test_camera_101_a" \
+python test.py --config=configs/test.yml MODEL.NAME "resnet50_ibn_a" MODEL.CAMERA_NAME "resnet101_ibn_a" \
+OUTPUT_DIR "./log/test_camera_101_a" \
 TEST.WEIGHT "./log/finetune_a/resnet50_ibn_a_model_best.pth" \
 TEST.CAMERA_WEIGHT "./log/camera_101_a/best.pth"
 
-python test.py --config=configs/test.yml MODEL.NAME "resnet50_ibn_a" OUTPUT_DIR "./log/test_camera_hr" \
+python test.py --config=configs/test.yml MODEL.NAME "resnet50_ibn_a" MODEL.CAMERA_NAME "hrnetv2_w18" \
+OUTPUT_DIR "./log/test_camera_hr" \
 TEST.WEIGHT "./log/finetune_a/resnet50_ibn_a_model_best.pth" \
 TEST.CAMERA_WEIGHT "./log/camera_hr/best.pth"
 ```

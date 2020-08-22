@@ -33,14 +33,23 @@ The performance on VisDA2020 validation dataset
 | + Post Processing | 70.9 | 86.5 | 92.8 | 94.4 |
 
 ## Trained models
-The four main models with test image size of (384, 128) can be downloaded from:
+The models can be downloaded from:
 
 * ResNet50-ibn-a: [Google Drive](https://drive.google.com/file/d/1ejLJk7sJOWhMD6zwQDWmhzFsli0dcSim/view?usp=sharing)
 * ResNet101-ibn-a: [Google Drive](https://drive.google.com/file/d/1AM_xjiu68iaquT0qMpo8TyauuxKj91sh/view?usp=sharing)
 * ResNet50-ibn-b: [Google Drive](https://drive.google.com/file/d/1w3NITiq4fnmijynAcJM6J-JcqWspscpI/view?usp=sharing)
 * HRNetv2-w18: [Google Drive](https://drive.google.com/file/d/1uiryXdhsH8X4MCIDBafEO9qM7dMekLQS/view?usp=sharing)
+* ResNet50-ibn-a-large: [Google Drive](https://drive.google.com/file/d/1mVQeamQGUgSuIr8Y73DGNe1H6GPKjuAo/view?usp=sharing)
+* ResNet101-ibn-a-large: [Google Drive](https://drive.google.com/file/d/1jlwwIIGIUwzSaGwP9mc77gMnteTviPiG/view?usp=sharing)
+* ResNet50-ibn-b-large: [Google Drive](https://drive.google.com/file/d/1oseEqEPKDx6-1b0h0RyNxR4yKV-t3-Z2/view?usp=sharing)
+* HRNetv2-w18-large: [Google Drive](https://drive.google.com/file/d/11_npph5csVOSmn6RL5g_3JthqCEQw3ga/view?usp=sharing)
 
+The camera models can be downloaded from:
+
+* Camera(ResNet101): [Google Drive](https://drive.google.com/file/d/1E-n2iOVwq-3PGv1CUxpEDzjP8Uchn7rR/view?usp=sharing)
+* Camera(ResNet152): [Google Drive](https://drive.google.com/file/d/1WLBrxiIWj3FmidCh2notX71nMvQoujUT/view?usp=sharing)
 * Camera(ResNet101-ibn-a): [Google Drive](https://drive.google.com/file/d/1tuJZw1DnTQ5B95voUL8bE1akiyrqeK-E/view?usp=sharing)
+* Camera(HRNetv2-w18): [Google Drive](https://drive.google.com/file/d/1eC6sqKkefrpl1Bq-2lQ_8ScQTe51jl_K/view?usp=sharing)
 
 ### Some tips
 * By our experience, there can be a large fluctuation of validation scores which are not completely positive correlated to the scores on testing set. 

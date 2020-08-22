@@ -10,6 +10,7 @@ import sys
 import torch
 import time
 import random
+import numpy as np
 
 from torch.backends import cudnn
 
