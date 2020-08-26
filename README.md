@@ -16,7 +16,7 @@ This project is mainly based on [reid-strong-baseline](https://github.com/michua
 * python >= 3.5
 * torchvision
 * yacs
-3. Prepare dataset. We modified the file names in order to read all datasets through one api. You can download the modified version in [here](https://drive.google.com/file/d/1n0UTKs4dq47bpYYHIh6BH1kV5jYdebId/view?usp=sharing). In addition to the original data, we also added CamStyle data to better train the model. 
+3. Prepare dataset. It can be obtained from [Simon4Yan/VisDA2020](https://github.com/Simon4Yan/VisDA2020). 
 4. We use [ResNet-ibn](https://github.com/XingangPan/IBN-Net) and [HRNet](https://github.com/HRNet/HRNet-Image-Classification) as backbones. ImageNet pretrained models can be downloaded in [here](https://drive.google.com/drive/folders/1thS2B8UOSBi_cJX6zRy6YYRwz_nVFI_S) and [here](https://onedrive.live.com/?authkey=%21AMkPimlmClRvmpw&cid=F7FD0B7F26543CEB&id=F7FD0B7F26543CEB%21112&parId=F7FD0B7F26543CEB%21105&o=OneUp). 
 
 ## Run
