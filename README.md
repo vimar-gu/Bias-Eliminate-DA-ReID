@@ -1,4 +1,4 @@
-# Bias Eliminate Domain Adaptive Pedestrian Re-identification
+# Bias Eliminate Domain Adaptive Pedestrian Re-identification [[Technique Report]](https://github.com/vimar-gu/Bias-Eliminate-DA-ReID/blob/master/files/TechReport.pdf)
 
 This repo contains our code for [VisDA2020](http://ai.bu.edu/visda-2020) challenge at ECCV workshop. 
 
